@@ -130,3 +130,22 @@ welcome — especially better-sourced entity labels.
 
 Code is released under the MIT License (see `LICENSE`). The report text and
 findings may be reused with attribution.
+
+---
+
+## 📄 License & Attribution
+
+This repository uses a dual-licensing structure to protect both the software code and the written intellectual property:
+
+* **Text, Reports & Written Analysis:** Licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).  
+  *You are free to share, copy, and adapt this material for any purpose, including commercially, provided you give appropriate credit to **xorextrace**, provide a link to the license, and indicate if changes were made.*
+* **Code & Verification Scripts (`scripts/`):** Licensed under the [MIT License](LICENSE).
+
+---
+
+### ✍️ How to Cite / Attribute This Work
+
+If you quote, reference, or base news articles, research papers, or blog posts on this analysis, you are legally required by the CC BY 4.0 license to provide attribution. Please use the following format:
+
+> **Source:** *On-Chain Analysis by xorextrace*  
+> **Repository:** `https://github.com/xorextrace/cyberleek-onchain`
