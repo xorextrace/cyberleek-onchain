@@ -1,0 +1,12 @@
+# Core wallets of the $CYBERLEEK funding trail (one address per line).
+# Feed this to: python scripts/fetch_wallets.py --addresses-file wallets.example.txt --out data/core.json
+Hok9nbV89yBSKCttxe3goqajwbiqQa9mtHvQBsbJH3Np   # deployer
+Ec2qmcpCCD9hjahAcquiQf5JkZWCK68BUahCje1izYC7   # funding / pass-through
+9Ve5Cgt5xzkdLnowxfFBk89R3mo5QmVrngDedqWdxxVg   # pass-through
+3YLNDXnV9fNysDWaD39uQxwxeSaMFeAswvoQPZNvuNA4   # intermediate funder
+26sZDubW854zGAasvrUaRAgY54MiC97CEHWZKPRMPMQ9   # disperser
+EjsB4qhcQv3zwXWqMbD739VA7nFc85f2egwTnkr3KGB2   # relay
+2ZdUUvrr7ANY2rzpbyBcZHp1hTZ5uTY8JZ4vFnYnvJhD   # relay
+4wzwheYAC6hNW2JxJmxZyY9a5mEFf8epEqHKgPXvxZbB   # relay
+734tW6ytogjF3e4qoaqiNKpq9byVRgLY5fK7ZEFn72Sb   # relay / edge
+J4zoc1rFgpP2Mrknb48BRRoQW9P5GiVtPyuemkKMpAnV   # deposit aggregator (CEX-grade)
