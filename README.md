@@ -1,10 +1,13 @@
 # CyberLeek $CYBERLEEK — On-Chain Funding Trail
 
-> **Latest update (v1.2.0): cash-out analysis now reproducible via trace_cashout.py + tally_cashout.py. Funds traced to KuCoin and CCE.Cash. See CHANGELOG and §14b.
+> **Latest update (v1.2.0):** Cash-out analysis is now reproducible via
+> `trace_cashout.py` + `tally_cashout.py`. Funds were traced to KuCoin and
+> CCE.Cash. See `CHANGELOG.md` and §14b.
+See CHANGELOG and §14b.
 
 Independent, reproducible analysis of the **Solana** funding trail behind the deployment and initial liquidity of the `$CYBERLEEK` token, associated with the August 2026 GTA VI leak campaign attributed to "CyberLeek".
 
-Everything here is derived from **public blockchain data** and is fully reproducible: the scripts fetch raw transactions from Solana RPC and recompute every figure in the report.
+Everything here is derived from public blockchain data and is designed to be fully reproducible: the scripts fetch raw transactions from Solana RPC and recompute the figures in the report.
 
 > [!IMPORTANT]
 > **This repository does not identify any person.** It establishes financial relationships between wallets and, where supported by public explorer metadata, discusses possible links to exchange infrastructure. It does **not** establish the real-world identity of "CyberLeek", the controller of any wallet, or who obtained the original GTA VI material.
@@ -31,7 +34,7 @@ graph TD
 
 - The `$CYBERLEEK` crypto infrastructure (mint, authority revocation, liquidity, LP lock) was fully operational on **2026-08-15**, three days **before** the public leaks (2026-08-18). 🟢
 - The **331.66 SOL** routed to the deployer became **Raydium CPMM pool liquidity** (−330.19 SOL in the pool-creation tx), i.e. **market seeding, not a cash-out**. 🟢
-- The funding was routed through a mesh of **fresh single-purpose wallets**, then traced backward, hop by hop, to a **deposit-aggregation wallet** (`J4zo…`) whose First Funder is labeled on Solscan as a **KuCoin Hot Wallet**. 🟢 / 🟡
+- The funding was routed through a mesh of fresh, apparently single-purpose wallets and traced backward to a deposit-aggregation wallet (J4zo…). Solscan currently labels the wallet identified as J4zo's First Funder as a **KuCoin Hot Wallet**. 🟢 / 🟡
 - **No obfuscation service (mixer / private-swap) was found** in the analyzed path: the flow reconciles ~99% by amount/timing and invokes no mixing contract. 🟢
 - None of this identifies CyberLeek or addresses the original intrusion. 🔴
 
@@ -164,7 +167,7 @@ This repository uses a dual-licensing structure to protect both the software cod
 
 ### ✍️ How to Cite / Attribute This Work
 
-If you quote, reference, or base news articles, research papers, or blog posts on this analysis, you are legally required by the CC BY 4.0 license to provide attribution. Please use the following format:
+If you reuse, adapt, or redistribute the report or other CC BY 4.0-licensed written material, please provide the required attribution under the license. The suggested citation format is:
 
 > **Source:** *On-Chain Analysis by xorextrace*  
 > **Repository:** `https://github.com/xorextrace/cyberleek-onchain`
