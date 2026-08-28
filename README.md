@@ -1,5 +1,7 @@
 # CyberLeek $CYBERLEEK — On-Chain Funding Trail
 
+> **Latest update (v1.1.0):** cash-out analysis — funds traced to KuCoin and CCE.Cash. See [CHANGELOG](./CHANGELOG.md) and §14b of the report.
+
 Independent, reproducible analysis of the **Solana** funding trail behind the deployment and initial liquidity of the `$CYBERLEEK` token, associated with the August 2026 GTA VI leak campaign attributed to "CyberLeek".
 
 Everything here is derived from **public blockchain data** and is fully reproducible: the scripts fetch raw transactions from any Solana RPC and recompute every figure in the report.
