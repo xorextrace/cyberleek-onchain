@@ -1,0 +1,29 @@
+# Cash-out wallets (27 Aug 2026) — feed to fetch_wallets.py to reproduce §14b.
+#   python scripts/fetch_wallets.py --addresses-file wallets.cashout.txt \
+#     --start 2026-08-25 --end 2026-08-28 --out data/cashout.json
+#
+# NOTE: the KuCoin Hot Wallet (BmFdpraQhkiDQE6SnfG5omcA1VwzqfXrwtNYBwWTymy6) is
+# deliberately NOT listed here. It is a high-volume exchange hot wallet with tens
+# of thousands of transactions; fetching it in full is unnecessary and slow. The
+# relevant flow into it is already captured via GPscf (below), and tally_cashout.py
+# treats that lump as a shared-aggregator flow (not cleanly attributable).
+#
+# First-level exits from the deployer Hok9 (07:29-07:32 UTC):
+He8QKFkGkZAKyXnV5xc7KXJLN5cjxxFXXM2JtbBnAUjL
+BFeK4aW5N5zDPDJy4bHeWwxnSwAj2FyvaMvzdjJ7AUuL
+Bv6U52fwZtwAAnxod34MqwtXTU4NMSCQTFPqeW3trZGJ
+8hypa8YWmtyVvSUFzGSWJdPbEteLmxeCNdqGyNz8X3Rh
+# Second-level relays surfaced by trace_cashout.py:
+7M79fHZ8ZDPfFU6hfn7rqMJQdgSHkZDxQD4Pgzy9HeMu
+CfHpd5knajdfTSvsfT3woSpvZpqVAHcrJHeDEVcyfWTf
+G2VaQoWRGX2h7CGNfzcbkcFm9xrjWNsWFA4qkhj1GiZu
+CoSKZDV8V6mzJkwKZeQx1bp52yHMwQv28u1WaGZwCv59
+AZN1ecqeLDeAkALTTzYiu7mbZ5KDgVHszMSrQLvxftny
+GokFVhErnWVhyw39yFuLDRezKqLjJJp8Fs7ZkYSzBTK9
+HLSU45P2DqDNiVserd1iFzgzv6E2nKjXjbSCzKJSh9RL
+HHRZoUMxdWPP2ThsVbVjCJmDw6idP7rP6TUXyiVeMgDH
+GPscfRmNgRjtv8dLAGcXTmX83AL1eTjXZwtR3BqubkQt
+btYkifQc6VZSkrDHMqYQEKFETHnvc3uAS26SsiAges5
+# Labeled deposit endpoints (verify these on Solscan):
+3AfnRwXvWxu4HpA6HQQwMzWfP6bETq62oUrwPMfHJ2rH
+eS4n56zrQ4ESznC8mDxQhsY4JoCpEt1jDczgcQ299qW
