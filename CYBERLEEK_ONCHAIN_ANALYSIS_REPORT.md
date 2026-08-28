@@ -559,7 +559,7 @@ graph TD
 | 2026-08-15 21:07 | Raydium CPMM pool created |
 | 2026-08-15 21:19 | LP lock |
 | 2026-08-18 | Public GTA VI leak distribution reported |
-| 2026-08-27 07:29–07:32 | `Hok9` cashes out ~3,210 SOL of fee proceeds into a peel chain (see §14b), terminating at KuCoin and CCE.Cash
+| 2026-08-27 07:29–07:32 | `Hok9` moves ~3,210 SOL out through a fresh peel chain (see §14b), terminating at KuCoin and CCE.Cash
 
 ### Timeline assessment
 
@@ -585,7 +585,7 @@ The blockchain alone cannot establish the operators' subjective intent.
 - `26sZ` behaves as a disperser with one major upstream source and hundreds of downstream destinations.
 - `J4zo` behaves as a large aggregation hub.
 - No identified on-chain mixer smart contract was found in the analyzed path.
-- On 27 August 2026 the deployer cashed out ~3,210 SOL through a peel chain of fresh wallets terminating at two labeled exchange endpoints, KuCoin and CCE.Cash (see §14b).
+- On 27 August 2026 the deployer moved ~3,210 SOL into a fresh peel chain, with cleanly attributable branches reaching two labeled endpoints: KuCoin and CCE.Cash (see §14b).
 - High amount/timing continuity exists across the analyzed `26sZ` flow.
 - Public explorer metadata links the First Funder genealogy to an address labeled as a KuCoin Hot Wallet.
 
