@@ -141,7 +141,7 @@ This repository uses a dual-licensing structure to protect both the software cod
 
 * **Text, Reports & Written Analysis:** Licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).  
   *You are free to share, copy, and adapt this material for any purpose, including commercially, provided you give appropriate credit to **xorextrace**, provide a link to the license, and indicate if changes were made.*
-* **Code & Verification Scripts (`scripts/`):** Licensed under the [MIT License](LICENSE).
+* **Code & Verification Scripts (`scripts/`):** Licensed under the [MIT License](LICENSE-MIT).
 
 ---
 
