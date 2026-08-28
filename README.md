@@ -128,11 +128,6 @@ legal process and lives inside the exchange, not on-chain. Please do not use thi
 material to harass, dox, or accuse individuals. Corrections via issues/PRs are
 welcome — especially better-sourced entity labels.
 
-## License
-
-Code is released under the MIT License (see `LICENSE`). The report text and
-findings may be reused with attribution.
-
 ---
 
 ## 📄 License & Attribution
