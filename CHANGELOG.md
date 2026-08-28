@@ -9,7 +9,6 @@ All notable changes to this analysis are documented here.
   wallets, terminating at two labeled exchange endpoints — **KuCoin** and
   **CCE.Cash**.
 - Timeline (§10) and "What is proven" (§11) entries for the cash-out.
-- Italian translation of the full report (`CYBERLEEK_ONCHAIN_ANALYSIS_REPORT_IT`).
 
 ### Changed
 - Section 9 (mixer / obfuscation): added a note that the cash-out routed part of
