@@ -10,6 +10,21 @@ Everything here is derived from **public blockchain data** and is fully reproduc
 > **This repository does not identify any person.** It establishes financial relationships between wallets and, where supported by public explorer metadata, discusses possible links to exchange infrastructure. It does **not** establish the real-world identity of "CyberLeek", the controller of any wallet, or who obtained the original GTA VI material.
 > `wallet A → wallet B` does **not** imply `person X = person Y`. See the disclaimer in the report.
 
+```mermaid
+graph TD
+    classDef CEX fill:#2d3748,stroke:#4fd1c5,stroke-width:2px;
+    classDef Deployer fill:#742a2a,stroke:#fc8181,stroke-width:2px;
+    classDef Action fill:#2b6cb0,stroke:#63b3ed,stroke-width:2px;
+    classDef Inference fill:#4a5568,stroke:#f6e05e,stroke-width:2px,stroke-dasharray: 5 5;
+
+    A[Solscan Label:<br>KuCoin Hot Wallet]:::Inference -.->|Genealogy / First Funder| B(J4zo Hub & Funding Mesh)
+    B -->|~331 SOL Verified| C{Hok9 Deployer}:::Deployer
+    C -->|Aug 15: LP Seed| D[Raydium Pool]:::Action
+    C -->|Aug 27: Cash-out| E(Fresh Peel Chain)
+    E -->|~1,337 SOL Verified| F[Solscan Label:<br>CCE.Cash Deposit]:::CEX
+    E -->|~544 SOL Verified| G[Solscan Label:<br>KuCoin Deposit]:::CEX
+    E -.->|Shared Aggregator flow<br>Not cleanly attributable| H[Solscan Label:<br>KuCoin Hot Wallet]:::Inference
+```
 ---
 
 ## TL;DR findings
