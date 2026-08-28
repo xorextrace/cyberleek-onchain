@@ -4,7 +4,7 @@
 
 Independent, reproducible analysis of the **Solana** funding trail behind the deployment and initial liquidity of the `$CYBERLEEK` token, associated with the August 2026 GTA VI leak campaign attributed to "CyberLeek".
 
-Everything here is derived from **public blockchain data** and is fully reproducible: the scripts fetch raw transactions from any Solana RPC and recompute every figure in the report.
+Everything here is derived from **public blockchain data** and is fully reproducible: the scripts fetch raw transactions from Solana RPC and recompute every figure in the report.
 
 > [!IMPORTANT]
 > **This repository does not identify any person.** It establishes financial relationships between wallets and, where supported by public explorer metadata, discusses possible links to exchange infrastructure. It does **not** establish the real-world identity of "CyberLeek", the controller of any wallet, or who obtained the original GTA VI material.
