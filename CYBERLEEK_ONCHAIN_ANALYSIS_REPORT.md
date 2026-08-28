@@ -408,20 +408,18 @@ This is the most important boundary in the entire investigation.
 
 The evidence supports:
 
-```text
-KuCoin-labelled infrastructure
-        │
-        ▼
-First Funder genealogy
-        │
-        ▼
-J4zo aggregation hub
-        │
-        ▼
-26sZ
-        │
-        ▼
-CyberLeek-related funding branch
+```mermaid
+graph TD
+    classDef Verified fill:#1c4532,stroke:#48bb78,stroke-width:2px;
+    classDef Label fill:#2d3748,stroke:#ecc94b,stroke-width:2px,stroke-dasharray: 5 5;
+
+    KC1[Solscan Label:<br>KuCoin Hot Wallet BmFdp]:::Label -.->|Explorer Metadata Link| FF[First Funder<br>9WwEfd]:::Verified
+    FF -->|Verified Transfer| Hub1[J4zo Aggregation Hub]:::Verified
+    Hub1 -->|Verified Flow| Mesh[Intermediary Wallet Mesh]:::Verified
+    Mesh -->|Verified Transfer| Deployer[Hok9 Deployer]:::Verified
+    Deployer -->|Verified Cash-out| Peel[Fresh Peel Chain]:::Verified
+    Peel -->|Verified Transfer| Shared[GPscf Shared Aggregator]:::Label
+    Shared -.->|Downstream flow<br>Shared funds| KC1
 ```
 
 It does **not** support:
@@ -530,6 +528,20 @@ It claims only:
 
 All timestamps UTC.
 
+```mermaid
+graph TD
+    classDef Pre fill:#1c4532,stroke:#48bb78,stroke-width:2px;
+    classDef Leak fill:#742a2a,stroke:#fc8181,stroke-width:2px;
+    classDef Out fill:#2b6cb0,stroke:#63b3ed,stroke-width:2px;
+
+    T1[Aug 13–14: Upstream funding mesh active]:::Pre --> T2
+    T2[Aug 15 14:07–20:47: Hok9 receives ~331.66 SOL]:::Pre --> T3
+    T3[Aug 15 14:20–17:05: Token Minted & Authority Revoked]:::Pre --> T4
+    T4[Aug 15 21:07–21:19: Raydium LP Seeded & Locked]:::Pre --> T5
+    T5[Aug 18: Public GTA VI Leak Distribution]:::Leak --> T6
+    T6[Aug 27 07:29–07:32: Hok9 cashes out ~3,210 SOL]:::Out
+```
+
 | Date / time | Event |
 |---|---|
 | 2026-05-29 11:28 | First Funder genealogy associated with a KuCoin Hot Wallet label |
@@ -547,7 +559,7 @@ All timestamps UTC.
 | 2026-08-15 21:07 | Raydium CPMM pool created |
 | 2026-08-15 21:19 | LP lock |
 | 2026-08-18 | Public GTA VI leak distribution reported |
-| 2026-08-27 07:29–07:32 | `Hok9` cashes out ~3,210 SOL of fee proceeds into a peel chain (see §14b), terminating at KuCoin and CCE.Cash |
+| 2026-08-27 07:29–07:32 | `Hok9` cashes out ~3,210 SOL of fee proceeds into a peel chain (see §14b), terminating at KuCoin and CCE.Cash
 
 ### Timeline assessment
 
@@ -681,6 +693,19 @@ Following the branches to their terminals and reading the labels on Solscan:
 - **Remainder** in transit through fresh relays and dust / micro-branches.
 
 Cleanly attributed total: **~1,881 SOL of the ~3,211 SOL** that left the deployer. The rest is either inside the shared-aggregator lump or still moving at capture.
+
+```mermaid
+graph LR
+    classDef Verified fill:#1c4532,stroke:#48bb78,stroke-width:2px;
+    classDef Label fill:#2d3748,stroke:#ecc94b,stroke-width:2px,stroke-dasharray: 5 5;
+
+    Deployer[Hok9<br>~3,210 SOL]:::Verified -->|Verified| R1[4 Fresh L1 Wallets]:::Verified
+    R1 -->|Verified| R2[Multi-level<br>Fresh Relays]:::Verified
+    R2 -->|Verified cleanly:<br>~1,337 SOL| CCE[Solscan Label:<br>CCE.Cash Deposit]:::Label
+    R2 -->|Verified cleanly:<br>~544 SOL| KCDep[Solscan Label:<br>KuCoin Deposit]:::Label
+    R2 -->|Mixed funds| GP[GPscf<br>Shared Aggregator]:::Label
+    GP -.->|Fungible Lump<br>Cannot isolate CyberLeek share| KCHot[Solscan Label:<br>KuCoin Hot Wallet]:::Label
+```
 
 *(An earlier draft counted the shared `GPscf → BmFdp` lump toward KuCoin. That over-attributes fungible funds; the corrected method reports shared-aggregator flows as context only, never summed into an endpoint total — exactly what `tally_cashout.py` enforces.)*
 
