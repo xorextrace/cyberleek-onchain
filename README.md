@@ -1,6 +1,6 @@
 # CyberLeek $CYBERLEEK — On-Chain Funding Trail
 
-> **Latest update (v1.1.0):** cash-out analysis — funds traced to KuCoin and CCE.Cash. See [CHANGELOG](./CHANGELOG.md) and §14b of the report.
+> **Latest update (v1.2.0): cash-out analysis now reproducible via trace_cashout.py + tally_cashout.py. Funds traced to KuCoin and CCE.Cash. See CHANGELOG and §14b.
 
 Independent, reproducible analysis of the **Solana** funding trail behind the deployment and initial liquidity of the `$CYBERLEEK` token, associated with the August 2026 GTA VI leak campaign attributed to "CyberLeek".
 
@@ -29,16 +29,17 @@ Full write-up with signatures, slots, timestamps and a confidence level per clai
 
 ```
 .
-├── README.md                              # this file
-├── CYBERLEEK_ONCHAIN_ANALYSIS_REPORT.md   # full forensic report
-├── requirements.txt
-├── LICENSE
-├── wallets.example.txt                    # sample address list for the fetcher
+├── LICENSE                                # CC BY 4.0 (report text)
+├── LICENSE-MIT                            # MIT (code)
+├── wallets.example.txt                    # funding-trail address list
+├── wallets.cashout.txt                    # cash-out address list (§14b)
 ├── scripts/
 │   ├── fetch_wallets.py    # pull raw tx history for a set of wallets (RPC)
-│   ├── verify.py           # recompute the report's headline claims from dumps
+│   ├── verify.py           # recompute the funding-trail headline claims from dumps
 │   ├── analyze_flows.py    # fan-in/out, net flow, external mesh edges
-│   └── check_mixer.py      # exclude mixer/private-swap (program + reconciliation)
+│   ├── check_mixer.py      # exclude mixer/private-swap (program + reconciliation)
+│   ├── trace_cashout.py    # follow the 27 Aug cash-out peel chain to its endpoints
+│   └── tally_cashout.py    # sum SOL reaching each labeled cash-out endpoint
 └── data/                   # raw JSON dumps (git-ignored; regenerate locally)
 ```
 
@@ -78,6 +79,12 @@ python scripts/analyze_flows.py --data "data/*.json" --external
 # 5) exclude a mixer/private-swap on a hub
 python scripts/check_mixer.py --data "data/*.json" \
   --target 26sZDubW854zGAasvrUaRAgY54MiC97CEHWZKPRMPMQ9
+
+# 6) reproduce the 27 Aug cash-out (§14b): fetch, trace the peel chain, tally
+python scripts/fetch_wallets.py --addresses-file wallets.cashout.txt \
+  --start 2026-08-25 --end 2026-08-28 --out data/cashout.json
+python scripts/trace_cashout.py --data "data/cashout.json"
+python scripts/tally_cashout.py --data "data/cashout.json"
 ```
 
 To walk the trail further, feed the addresses surfaced by `--external` back into
