@@ -1,4 +1,4 @@
-# CyberLeek $CYBERLEEK — On-Chain Funding Trail
+# CyberLeek ($CYBERLEEK) — Solana On-Chain Funding & Cash-Out Analysis
 
 > **Latest update (v1.2.0):** Cash-out analysis is now reproducible via
 > `trace_cashout.py` + `tally_cashout.py`. Funds were traced to KuCoin and
