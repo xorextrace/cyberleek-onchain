@@ -3,7 +3,6 @@
 > **Latest update (v1.2.0):** Cash-out analysis is now reproducible via
 > `trace_cashout.py` + `tally_cashout.py`. Funds were traced to KuCoin and
 > CCE.Cash. See `CHANGELOG.md` and §14b.
-See CHANGELOG and §14b.
 
 Independent, reproducible analysis of the **Solana** funding trail behind the deployment and initial liquidity of the `$CYBERLEEK` token, associated with the August 2026 GTA VI leak campaign attributed to "CyberLeek".
 
