@@ -2,7 +2,7 @@
 
 > Independent, reproducible analysis of the Solana funding trail associated with the deployment and initial liquidity of `$CYBERLEEK`.
 
-**Analysis date:** 27 August 2026  
+**Analysis date:** 28 August 2026  
 **Network:** Solana mainnet-beta  
 **Scope:** On-chain financial relationships and transaction chronology  
 **Status:** Completed initial reconstruction
@@ -779,7 +779,7 @@ export SOLANA_RPC="https://mainnet.helius-rpc.com/?api-key=YOUR_KEY"
 
 # funding trail
 python scripts/fetch_wallets.py --addresses-file wallets.example.txt \
-  --start 2025-06-01 --end 2026-08-16 --out data/core.json
+  --start 2025-06-01 --end 2026-08-21 --out data/core.json
 
 # cash-out (27 Aug 2026) — separate window and wallet set
 python scripts/fetch_wallets.py --addresses-file wallets.cashout.txt \
