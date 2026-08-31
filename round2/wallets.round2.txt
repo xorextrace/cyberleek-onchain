@@ -1,0 +1,9 @@
+# Round-2 ($CYBER / "Grand Theft Leek") key addresses. Feed to fetch_wallets.py
+GPx5APBduaoYaG1jrqYNM81GDGgLyLWev9My4mmipump   # mint $CYBER
+GLf2JhxRfSuDVnRRE7TssRN2LKDvW6Afoqfq3d1c9uCJ   # creation signer / creator (~47.5% fee)
+6ehREaVX9kKAqwhaAsecpgjSy45xCNjxCgMgwNaud781   # pre-existing wallet (~50% fee, dedicated)
+8Nerkdt84Cq3AroU9319vBmC4iaJiEEGCxJRouWFSCcS   # third fee recipient (~2.5%)
+GN1ZMKUehXvRNwpUWbUSo5a8kvz6j9D7WpMiiJZjn5Xo   # fee-distribution source (Pump.fun-internal)
+G8UKzgPZvJm28NuRVus8X2XtvaMZSGzH8pMuKc5oh1Ew   # fee-claim cranker (Pump.fun-internal)
+2pFLeKpEcABxa5Ts7joByoyuqYgc7njXwHVA7QAaqjsP   # launch-day setup counterparty
+2qjP2dsqqrLrgMPGV7Si3SMteJG5tK4btFYndfUJy3ED   # common launch-day counterparty (cluster)
