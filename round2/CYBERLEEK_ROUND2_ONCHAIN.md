@@ -192,6 +192,38 @@ behind the launchpad/exchange boundary.
 5. **Labels / website:** treat entity tags and the website's claim as third-party
    metadata, verified independently — never blockchain-native facts.
 
+## 10. Reproduce round 2 (from scratch)
+
+Requires Python 3.9+ and `SOLANA_RPC` set to a Solana JSON-RPC endpoint.
+
+```bash
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+export SOLANA_RPC="https://mainnet.helius-rpc.com/?api-key=YOUR_KEY"
+
+# 1) mint genesis: creation signer, time, authorities
+python scripts/recon_token.py GPx5APBduaoYaG1jrqYNM81GDGgLyLWev9My4mmipump
+
+# 2) verify any creator-fee distribution (Appendix A) — instructions + balance deltas
+python scripts/gettx.py <SIGNATURE_FROM_APPENDIX_A>
+
+# 3) confirm 6ehREa is a single-token wallet (only GPx5...pump appears)
+python scripts/fetch_wallets.py --addresses 6ehREaVX9kKAqwhaAsecpgjSy45xCNjxCgMgwNaud781 \
+  --start 2026-06-01 --end 2026-08-31 --out round2/data/6eh.json
+grep -oE '[1-9A-HJ-NP-Za-km-z]{32,44}pump' round2/data/6eh.json | sort | uniq -c
+
+# 4) fee tally across the fee-path wallets (forensic view, not auto-attribution)
+python scripts/fetch_wallets.py --addresses-file round2/wallets.round2.txt \
+  --start 2026-08-29 --end 2026-08-31 --out round2/data/r2.json
+python scripts/tally_pump_fees.py --data "round2/data/*.json" \
+  --addresses GLf2JhxRfSuDVnRRE7TssRN2LKDvW6Afoqfq3d1c9uCJ \
+  6ehREaVX9kKAqwhaAsecpgjSy45xCNjxCgMgwNaud781 \
+  8Nerkdt84Cq3AroU9319vBmC4iaJiEEGCxJRouWFSCcS
+
+# 5) round-1 linkage test — expect no hits
+grep -Eo 'Hok9nbV|Ec2qmcp|9Ve5Cgt|3YLNDXn|26sZDub|J4zoc1r|9WwEfdd|BmFdpra' \
+  round2/data/r2.json | sort | uniq -c
+```
 ---
 
 ## Appendix A — Creator-fee distributions (per-signature)
