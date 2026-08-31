@@ -103,12 +103,12 @@ anchored to its signature in **Appendix A**:
 | 8Nerkdt (third party) | **2.699 SOL** | ~2.5% |
 | **Total to recipients** | **107.977 SOL** | |
 
-**The split is a fixed configured ratio, not noise.** On every distribution the
-three credits hold the same ~47.5 / 50.0 / 2.5 proportion, and per transaction they
+**The repeated ~47.5% / 50% / 2.5% split is consistent with a fixed per-launch fee configuration.** 
+On every distribution the three credits hold the same ~47.5 / 50.0 / 2.5 proportion, and per transaction they
 sum to the amount debited from the Pump.fun fee accounts (minus transaction cost).
 Example (sig #6, 20:47:10 UTC): `GN1ZMK` −1.502110 SOL → GLf2 +0.713097,
-6ehREa +0.751055, 8Nerkdt +0.037553. A recurring fixed ratio is a per-launch
-configuration parameter. 🟡 A near-even share to a wallet that predates the launch
+6ehREa +0.751055, 8Nerkdt +0.037553. The recurrence of the same ratio across all seven distributions is what a per-launch fee configuration would produce. 
+🟡 A near-even share to a wallet that predates the launch
 by six weeks indicates a **deliberately configured co-recipient at token creation**.
 `GN1ZMK` / `G8UKzg` are Pump.fun-internal plumbing; the operator-side recipients
 are GLf2 and 6ehREa.
