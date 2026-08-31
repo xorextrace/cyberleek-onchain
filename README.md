@@ -1,8 +1,20 @@
 # CyberLeek ($CYBERLEEK) — Solana On-Chain Funding & Cash-Out Analysis
 
-> **Latest update (v1.2.0):** Cash-out analysis is now reproducible via
-> `trace_cashout.py` + `tally_cashout.py`. Funds were traced to KuCoin and
-> CCE.Cash. See `CHANGELOG.md` and §14b.
+---
+
+## Round 2 — $CYBER / "Grand Theft Leek" (29 Aug 2026)
+
+A follow-up token launched during a CyberLeek countdown. Key findings (full
+write-up in [`round2/CYBERLEEK_ROUND2_ONCHAIN.md`](./round2/CYBERLEEK_ROUND2_ONCHAIN.md)):
+
+- The round-1 **website** (`cyberleek.wtf`) hosts the new mint `GPx5…pump` — brand
+  continuity at the web layer. 🟡
+- **No round-1 wallet is reused** anywhere in the traced round-2 material. Same-operator
+  attribution is **unresolved** (a negative is not proof either way). 🟠
+- Creator fees are split by a **fixed configured ratio** (~47.5 / 50 / 2.5) between the
+  creation signer `GLf2…`, a **pre-existing, single-token wallet** `6ehREa…`, and a
+  small third recipient. 🟢
+- Every fee figure is anchored to its transaction signature (report Appendix A). 🟢
 
 Independent, reproducible analysis of the **Solana** funding trail behind the deployment and initial liquidity of the `$CYBERLEEK` token, associated with the August 2026 GTA VI leak campaign attributed to "CyberLeek".
 
@@ -56,8 +68,15 @@ Full write-up with signatures, slots, timestamps and a confidence level per clai
 │   ├── analyze_flows.py    # fan-in/out, net flow, external mesh edges
 │   ├── check_mixer.py      # exclude mixer/private-swap (program + reconciliation)
 │   ├── trace_cashout.py    # follow the 27 Aug cash-out peel chain to its endpoints
-│   └── tally_cashout.py    # sum SOL reaching each labeled cash-out endpoint
+│   └── tally_cashout.py    # sum SOL reaching each labeled cash-out endpoint 
+│   ├── recon_token.py      # resolve a mint's true genesis tx (oldest-first)
+│   ├── gettx.py            # decode one tx: instructions + SOL balance changes
+│   ├── inspect_cashflows.py# per-tx balance-change viewer
+│   └── tally_pump_fees.py  # Pump.fun creator-fee forensic tally
 └── data/                   # raw JSON dumps (git-ignored; regenerate locally)
+├── round2/                                # round-2 ($CYBER) observation
+│   ├── CYBERLEEK_ROUND2_ONCHAIN.md        # the round-2 report (signature-anchored)
+│   └── wallets.round2.txt                 # round-2 address list
 ```
 
 The raw dumps under `data/` are **not** committed (they are large and easy to
