@@ -1,4 +1,4 @@
-# CyberLeek ($CYBERLEEK) — Solana On-Chain Funding & Cash-Out Analysis
+# CyberLeek — Solana On-Chain Investigations ($CYBERLEEK & $CYBER)
 
 ---
 
