@@ -2,7 +2,7 @@
 
 > Independent, reproducible analysis of the Solana funding trail associated with the deployment and initial liquidity of `$CYBERLEEK`.
 
-**Analysis date:** 28 August 2026  
+**Analysis date:** 27 August 2026  
 **Network:** Solana mainnet-beta  
 **Scope:** On-chain financial relationships and transaction chronology  
 **Status:** Completed initial reconstruction
@@ -96,6 +96,12 @@ Where exchange attribution is discussed, labels originate from public third-part
 - Arkham
 
 These labels may be incomplete or inaccurate and are therefore treated separately from raw on-chain evidence.
+
+## Reconciliation rule
+
+Every aggregate figure in this report is checked against the wallet's **actual balance delta** (`preBalances` / `postBalances`) rather than against a sum of parsed transfer instructions alone, and inflows must reconcile with outflows: a wallet cannot send more than it received plus its prior balance.
+
+This check exists because an earlier version of §14b failed it. The cash-out total was overstated by ~19% after a wallet's inbound and outbound transfers of the same amount were both counted, producing a figure implying more SOL leaving the chain than had ever entered it. The balance-delta check surfaces exactly that class of error, and is now applied to every headline number here.
 
 ---
 
@@ -539,7 +545,7 @@ graph TD
     T3[Aug 15 14:20–17:05: Token Minted & Authority Revoked]:::Pre --> T4
     T4[Aug 15 21:07–21:19: Raydium LP Seeded & Locked]:::Pre --> T5
     T5[Aug 18: Public GTA VI Leak Distribution]:::Leak --> T6
-    T6[Aug 27 07:29–07:32: Hok9 cashes out ~3,210 SOL]:::Out
+    T6[Aug 27 07:29–07:32: Hok9 cashes out ~2,705 SOL]:::Out
 ```
 
 | Date / time | Event |
@@ -559,7 +565,7 @@ graph TD
 | 2026-08-15 21:07 | Raydium CPMM pool created |
 | 2026-08-15 21:19 | LP lock |
 | 2026-08-18 | Public GTA VI leak distribution reported |
-| 2026-08-27 07:29–07:32 | `Hok9` moves ~3,210 SOL out through a fresh peel chain (see §14b), terminating at KuCoin and CCE.Cash
+| 2026-08-27 07:29–07:32 | `Hok9` moves ~2,705 SOL out through a fresh peel chain (see §14b), terminating at KuCoin and CCE.Cash
 
 ### Timeline assessment
 
@@ -585,7 +591,7 @@ The blockchain alone cannot establish the operators' subjective intent.
 - `26sZ` behaves as a disperser with one major upstream source and hundreds of downstream destinations.
 - `J4zo` behaves as a large aggregation hub.
 - No identified on-chain mixer smart contract was found in the analyzed path.
-- On 27 August 2026 the deployer moved ~3,210 SOL into a fresh peel chain, with cleanly attributable branches reaching two labeled endpoints: KuCoin and CCE.Cash (see §14b).
+- On 27 August 2026 the deployer moved ~2,705 SOL into a fresh peel chain, with cleanly attributable branches reaching two labeled endpoints: KuCoin and CCE.Cash (see §14b).
 - High amount/timing continuity exists across the analyzed `26sZ` flow.
 - Public explorer metadata links the First Funder genealogy to an address labeled as a KuCoin Hot Wallet.
 
@@ -654,7 +660,7 @@ A financially connected publisher may or may not be the original source of the l
 
 # 14b. Update — Cash-out (27 August 2026)
 
-On 27 August 2026, the deployer wallet `Hok9` moved out roughly **3,210 SOL** — the accumulated trading-fee proceeds of the token — in a short burst of transactions. This section was reconstructed and verified the same way as the rest of the report: raw transaction dumps, followed hop by hop, with exchange labels read independently on Solscan.
+On 27 August 2026, the deployer wallet `Hok9` moved out roughly **2,705 SOL** — the accumulated trading-fee proceeds of the token — in a short burst of transactions. This section was reconstructed and verified the same way as the rest of the report: raw transaction dumps, followed hop by hop, with exchange labels read independently on Solscan.
 
 ## 🟢 VERIFIED — the four exits from `Hok9`
 
@@ -665,9 +671,11 @@ All on 27 August 2026, 07:29–07:32 UTC:
 | 07:29 | 781.241 | `He8QKFkGkZAKyXnV5xc7KXJLN5cjxxFXXM2JtbBnAUjL` |
 | 07:30 | 741.631 | `BFeK4aW5N5zDPDJy4bHeWwxnSwAj2FyvaMvzdjJ7AUuL` |
 | 07:30 | 676.521 | `Bv6U52fwZtwAAnxod34MqwtXTU4NMSCQTFPqeW3trZGJ` |
-| 07:31–07:32 | 1,011.411 (2 tx) | `8hypa8YWmtyVvSUFzGSWJdPbEteLmxeCNdqGyNz8X3Rh` |
+| 07:32 | 505.681 | `8hypa8YWmtyVvSUFzGSWJdPbEteLmxeCNdqGyNz8X3Rh` |
 
-**Total out:** ~3,210.80 SOL.
+**Total out:** ~2,705.07 SOL.
+
+The wallet funded these exits by collecting ~15.49M CYBERLEEK in creator fees at 07:27 and selling the entire allocation one minute later, receiving 1,442.43 + 1,234.23 = **2,676.67 SOL**; the ~28 SOL difference was pre-existing balance. Inflows and outflows therefore reconcile.
 
 ## 🟢 VERIFIED — a peel chain of fresh single-purpose wallets
 
@@ -692,14 +700,14 @@ Following the branches to their terminals and reading the labels on Solscan:
 - **KuCoin hot wallet (BmFdp): present but not cleanly attributable.** One branch runs `GPscf → BmFdp`, but `GPscf` is a *shared* aggregator that also pools unrelated users' funds; it forwards a large lump (thousands of SOL) to the KuCoin hot wallet, of which only a fraction is CyberLeek's. On-chain that fraction cannot be cleanly separated (SOL is fungible), so it is **not** added to the KuCoin total — it is reported separately for context.
 - **Remainder** in transit through fresh relays and dust / micro-branches.
 
-Cleanly attributed total: **~1,881 SOL of the ~3,211 SOL** that left the deployer. The rest is either inside the shared-aggregator lump or still moving at capture.
+Cleanly attributed total: **~1,881 SOL of the ~2,705 SOL** that left the deployer (~70%). The rest is either inside the shared-aggregator lump or still moving at capture.
 
 ```mermaid
 graph LR
     classDef Verified fill:#1c4532,stroke:#48bb78,stroke-width:2px;
     classDef Label fill:#2d3748,stroke:#ecc94b,stroke-width:2px,stroke-dasharray: 5 5;
 
-    Deployer[Hok9<br>~3,210 SOL]:::Verified -->|Verified| R1[4 Fresh L1 Wallets]:::Verified
+    Deployer[Hok9<br>~2,705 SOL]:::Verified -->|Verified| R1[4 Fresh L1 Wallets]:::Verified
     R1 -->|Verified| R2[Multi-level<br>Fresh Relays]:::Verified
     R2 -->|Verified cleanly:<br>~1,337 SOL| CCE[Solscan Label:<br>CCE.Cash Deposit]:::Label
     R2 -->|Verified cleanly:<br>~544 SOL| KCDep[Solscan Label:<br>KuCoin Deposit]:::Label
@@ -708,6 +716,8 @@ graph LR
 ```
 
 *(An earlier draft counted the shared `GPscf → BmFdp` lump toward KuCoin. That over-attributes fungible funds; the corrected method reports shared-aggregator flows as context only, never summed into an endpoint total — exactly what `tally_cashout.py` enforces.)*
+
+> **Correction (2 September 2026, v1.4.0).** Earlier versions of this report, and coverage based on them, stated the cash-out total as **3,210.80 SOL**. That figure was wrong. The fourth exit, to `8hypa8…`, was counted as 1,011.411 SOL when the wallet in fact received a single transfer of **505.681 SOL**; the same amount was double-counted because the wallet's inbound and outbound transfers were both summed. The corrected total is **2,705.07 SOL**, which reconciles with the 2,676.67 SOL the deployer received from selling its creator-fee allocation minutes earlier (the earlier figure did not reconcile — it implied more SOL leaving than ever arrived, which should have been caught). The absolute endpoint figures are unaffected: ~1,336.67 SOL to CCE.Cash and ~543.90 SOL to the KuCoin deposit address were measured directly. Only the denominator changes, so the cleanly-attributed share rises from ~59% to ~70%.
 
 ## Findings
 
@@ -797,7 +807,7 @@ verification step needs.
 To independently verify the analysis:
 
 1. Set `SOLANA_RPC` and regenerate the dumps:
-   `python scripts/fetch_wallets.py --addresses-file wallets.example.txt --start 2025-06-01 --end 2026-08-16 --out data/core.json`
+   `python scripts/fetch_wallets.py --addresses-file wallets.example.txt --start 2025-06-01 --end 2026-08-21 --out data/core.json`
 2. Run `python scripts/verify.py --data "data/core.json"`. It prints the three key transfers and every chain hop with full signatures, slots and block times.
 3. Take any printed signature and query it through a Solana explorer or RPC provider, comparing sender, recipient, amount in lamports, slot, block time and invoked programs.
 4. Run `python scripts/check_mixer.py --data "data/core.json" --target 26sZDubW854zGAasvrUaRAgY54MiC97CEHWZKPRMPMQ9` to reproduce the reconciliation and program-profile results.
