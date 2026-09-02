@@ -44,7 +44,7 @@ SEED_OUT = {
     "He8QKFkGkZAKyXnV5xc7KXJLN5cjxxFXXM2JtbBnAUjL": 781.241,
     "BFeK4aW5N5zDPDJy4bHeWwxnSwAj2FyvaMvzdjJ7AUuL": 741.631,
     "Bv6U52fwZtwAAnxod34MqwtXTU4NMSCQTFPqeW3trZGJ": 676.521,
-    "8hypa8YWmtyVvSUFzGSWJdPbEteLmxeCNdqGyNz8X3Rh": 1011.411,
+    "8hypa8YWmtyVvSUFzGSWJdPbEteLmxeCNdqGyNz8X3Rh": 505.681,
 }
 
 # Every wallet ON the cash-out peel chain (from trace_cashout.py). Only transfers
